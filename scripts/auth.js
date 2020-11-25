@@ -1,3 +1,38 @@
+
+//listen for auth status changes
+// by checking this user object we can understood the user is logout or login , if logout then null 
+ auth.onAuthStateChanged( user =>{
+      if(user)
+      {
+          console.log('user logged in' , user);
+      }
+      else{
+          console.log('user logged out');
+      } 
+
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //signup
 const signupForm = document.querySelector('#signup-form')
 signupForm.addEventListener('submit',(e)=>
@@ -11,7 +46,7 @@ signupForm.addEventListener('submit',(e)=>
 // signup the user 
   auth.createUserWithEmailAndPassword( email,password).then(
    cred => {
-       console.log(cred.user);
+    //    console.log(cred.user);
        const modal = document.querySelector('#modal-signup');
        M.Modal.getInstance(modal).close();
        signupForm.reset();
@@ -32,7 +67,7 @@ logout.addEventListener('click', (e) =>
     e.preventDefault();
     auth.signOut().then(()=>
     {
-        console.log('User Sign Out');
+        // console.log('User Sign Out');
 
     });
 
@@ -52,7 +87,7 @@ loginForm.addEventListener('submit', (e)=>
   auth.signInWithEmailAndPassword(email,password).then(
       cred => {
 
-    console.log(cred.user);
+    // console.log(cred.user);
     //close the login modal and reset the form
     const modal = document.querySelector('#modal-login');
     M.Modal.getInstance(modal).close();
